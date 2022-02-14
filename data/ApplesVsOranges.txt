@@ -1,0 +1,3 @@
+A card is drawn from a shuffled deck and shown to the player. 
+The player then guesses what the suit of the next card will be - will it be the same or different? 
+For each correct guess, the player gains a point.
