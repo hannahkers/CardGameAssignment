@@ -26,32 +26,32 @@ namespace CardGameAssignment
         public void AppleOranges()
         {
             fiftyTwoCardDeck.cards = Shuffle(fiftyTwoCardDeck.cards);
-            int Guess = 0;
-            int Target = 5;
+            int guess = 0;
+            int target = 5;
             string Input = "";
             Random RandomNumber = new Random();
 
             //statements to run the game
-            Target = RandomNumber.Next(2) + 1;
+            target = RandomNumber.Next(2) + 1;
 
             Print("The first card drawn is:");
-            Print($"{Target}.");
+            Print($"{target}.");
 
             Print("Will the next card be the same suit or a different one?");
             Print("Enter 1 for same, 2 for different:");
             Input = ReadLine();
-            if (int.TryParse(Input, out Guess))
+            if (int.TryParse(Input, out guess))
             {
-                if (Guess == Target)
+                if (guess == target)
                 {
                     //match - congratulations!    
-                    Print("Congratulations! You guessed " + Guess + " and the number I was thinking of was " + Target + ".");
+                    Print("Congratulations! You guessed " + guess + " and I was thinking of " + target + ".");
                     AppleOranges();
                 }
                 else
                 {
                     //no match - try again
-                    Print("Sorry. You guessed " + Guess + ". The number I was thinking of was " + Target + ". Try again!");
+                    Print("Sorry. You guessed " + guess + ". I was thinking of " + target + ". Try again!");
                     AppleOranges();
                 }
             }
@@ -68,6 +68,29 @@ namespace CardGameAssignment
 
 
             
+        }
+
+
+        public void HigherLower()
+        {
+            fiftyTwoCardDeck.cards = Shuffle(fiftyTwoCardDeck.cards);
+            int Guess = 0;
+            int Target = 5;
+            string Input = "";
+            Random RandomNumber = new Random();
+            Target = RandomNumber.Next(1,14);
+
+            Print("The first card drawn is:");
+            Print($"{Target}.");
+
+            Print("Will the next card be a higher value or lower value?");
+            Print("Enter 1 for higher, 2 for lower:");
+
+            while (true)
+            {
+
+            }
+
         }
 
        
