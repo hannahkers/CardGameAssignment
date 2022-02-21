@@ -11,30 +11,20 @@ namespace CardGameAssignment
 {
     class Application
     {
+        Game highLow = new Game();
         Game appleOrange = new Game();
         List<Card> cards = new List<Card>();
 
         Person Player = new Person();
         public List<Game> games = new List<Game>();
 
-        List<string> suits = new List<string>()
-        {
-            "Apples","Oranges"
-        };
-
-        List<int> values = new List<int>()
-        {
-            2,3,4,5,6,7,8,9,10,11,12,13,14
-        };
+        
         public void LoadGame()
         {
-            //Player.playerName = "Anonymous Player";
             Title = "Card Games!";
 
             ShowMenu();
             Pause();
-            //Deck deck = new Deck(suits, values);
-            //deck.ShowCards();
         }
 
         public void ShowMenu()
@@ -52,6 +42,7 @@ namespace CardGameAssignment
                     break;
                 case 1:
                     //higher or lower
+                    highLow.HigherLower();
                     break;
                 case 2:
                     //highes match
@@ -83,8 +74,6 @@ namespace CardGameAssignment
         {
             return cards[0]; 
         }
-
-        //PROG 201 Demo Code
        
         public void ShowCredits()
         {

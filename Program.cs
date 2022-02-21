@@ -14,6 +14,10 @@ namespace CardGameAssignment
             Application game = new Application();
             game.LoadGame();
             Pause();
+
+            //Game game = new Game();
+            //game.PrintDeck();
+            //Pause();
         }
     }
 }
