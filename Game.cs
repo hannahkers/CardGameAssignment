@@ -27,48 +27,48 @@ namespace CardGameAssignment
         public void AppleOranges()
         {
             fiftyTwoCardDeck.cards = Shuffle(fiftyTwoCardDeck.cards);
-            int guess = 0;
-            int target = 5;
-            string Input = "";
-            Random RandomNumber = new Random();
-
-            //statements to run the game
-            target = RandomNumber.Next(2) + 1;
+            string guess = "";
+            string target = "";
+            int targetIndex = 0;
+            string input = "";
+            Random randomNumber = new Random();
+            targetIndex = randomNumber.Next(0, fiftyTwoCardDeck.cards.Count);
+            target = fiftyTwoCardDeck.cards[targetIndex].Suit;
 
             Print("The first card drawn is:");
-            Print($"{target}.");
+            Print($"{targetIndex} of {target}.");
 
             Print("Will the next card be the same suit or a different one?");
-            Print("Enter 1 for same, 2 for different:");
-            Input = ReadLine();
-            if (int.TryParse(Input, out guess))
-            {
-                if (guess == target)
+            Print("Please type the name of the suit: 'Apples', 'Oranges', 'Pears', or 'Bananas'.");
+            input = ReadLine();
+            
+                if (input == target)
                 {
                     //match - congratulations!    
-                    Print("Congratulations! You guessed " + guess + " and I was thinking of " + target + ".");
+                    Print("Congratulations! You guessed " + input + " and I was thinking of " + target + ".");
+                    AppleOranges();
+                }
+                if (input != target)
+                {
+                    //no match - try again
+                    Print("Sorry. You guessed " + input + ". I was thinking of " + target + ". Try again!");
                     AppleOranges();
                 }
                 else
                 {
-                    //no match - try again
-                    Print("Sorry. You guessed " + guess + ". I was thinking of " + target + ". Try again!");
+                    Print("please enter a valid answer.");
+                    Pause();
                     AppleOranges();
                 }
-            }
-            else
-            {
-                Print("please enter a valid number.");
-                Pause();
-                AppleOranges();
-            }
-            ReadKey();
+                ReadKey();
 
         }
 
 
         public void HigherLower()
         {
+            int score =0;
+            int NewScore;
             fiftyTwoCardDeck.cards = Shuffle(fiftyTwoCardDeck.cards);
             int guess = 0;
             int target = 5;
@@ -77,7 +77,7 @@ namespace CardGameAssignment
             Random randomNumber = new Random();
             targetIndex = randomNumber.Next(0,fiftyTwoCardDeck.cards.Count);
             target = fiftyTwoCardDeck.cards[targetIndex].Value;
-
+            
             Print("The first card drawn is:");
             Print($"{target} of {fiftyTwoCardDeck.cards[targetIndex].Suit}.");
 
@@ -94,11 +94,16 @@ namespace CardGameAssignment
                 {
                     Print("Correct");
                     Print($"The new card is {followValue} of {fiftyTwoCardDeck.cards[followIndex].Suit}");
+                    NewScore = score++;
+                    Print($"Score: {score}.");
+                    HigherLower();
                 }
                 else
                 {
                     Print("Incorrect");
                     Print($"The new card is {followValue} of {fiftyTwoCardDeck.cards[followIndex].Suit}");
+                    
+                    HigherLower();
                 }
 
             }
@@ -108,11 +113,17 @@ namespace CardGameAssignment
                 {
                     Print("Correct");
                     Print($"The new card is {followValue} of {fiftyTwoCardDeck.cards[followIndex].Suit}");
+                    NewScore = score++;
+                    Print($"Score: {score}.");
+                    
+                    HigherLower();
                 }
                 else
                 {
                     Print("Incorrect");
                     Print($"The new card is {followValue} of {fiftyTwoCardDeck.cards[followIndex].Suit}");
+                    
+                    HigherLower();
                 }
 
             }
@@ -124,6 +135,20 @@ namespace CardGameAssignment
             
         }
 
-       
+        
+
+        public void HighestMatch()
+        {
+            int score = 0;
+            fiftyTwoCardDeck.cards = Shuffle(fiftyTwoCardDeck.cards);
+            int guess = 0;
+            int target = 5;
+            int targetIndex = 0;
+            string input = "";
+            Random randomNumber = new Random();
+            targetIndex = randomNumber.Next(0,fiftyTwoCardDeck.cards.Count);
+            target = fiftyTwoCardDeck.cards[targetIndex].Value;
+
+        }
     }
 }
