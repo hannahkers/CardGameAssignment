@@ -8,6 +8,10 @@ namespace CardGameAssignment
 {
     class Person
     {
+        int score = 0;
         public string playerName;
+        public List<Card> playerHand = new List<Card>();
+
+        public int Score { get => score; set => score = value; }
     }
 }

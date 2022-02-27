@@ -8,6 +8,7 @@ using static CardGameAssignment.Utility;
 
 namespace CardGameAssignment
 {
+    //Class made with help from tutor Duncan
     class Deck
     {
       

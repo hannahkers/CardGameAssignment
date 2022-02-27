@@ -13,6 +13,7 @@ namespace CardGameAssignment
     {
         Game highLow = new Game();
         Game appleOrange = new Game();
+        Game highMatch = new Game();
         List<Card> cards = new List<Card>();
 
         Person Player = new Person();
@@ -45,7 +46,7 @@ namespace CardGameAssignment
                     highLow.HigherLower();
                     break;
                 case 2:
-                    //highes match
+                    highMatch.HighestMatch();
                     break;
                 case 3:
                     ShowCredits();
